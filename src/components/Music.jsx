@@ -4,7 +4,7 @@ const Music = () => {
     return (
         <div className="content">
             <div>
-                Music
+                Musician
             </div>
         </div>
     );
