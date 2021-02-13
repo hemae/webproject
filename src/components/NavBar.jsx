@@ -4,19 +4,19 @@ const NavBar = () => {
     return (
         <nav className="nav">
             <div>
-                <a href="#s">Profile</a>
+                <a href="#s">Ferromagnet</a>
             </div>
             <div>
-                <a href="#s">Messages</a>
+                <a href="#s">Antiferromagnet</a>
             </div>
             <div>
-                <a href="#s">News</a>
+                <a href="#s">Ferrimagnet</a>
             </div>
             <div>
-                <a href="#s">Music</a>
+                <a href="#s">About</a>
             </div>
             <div>
-                <a href="#s">Settings</a>
+                <a href="#s">Language settings</a>
             </div>
         </nav>
     );

@@ -4,22 +4,22 @@ const Profile = () => {
     return (
         <div className="content">
             <div>
-                <img src="http://www.prikleem.ru/published/publicdata/PRIKLE35SHOP/attachments/SC/products_pictures/3541.png" />
+                <img src="https://km.insma.urfu.ru/documents/logotype/cm_544x250.png" />
             </div>
             <div>
-                ava+descr
+                material name + material photo
             </div>
             <div>
-                My posts
+                What's need calctulate:
                 <div>
-                    New post
+                    m(T, H)
                 </div>
                 <div>
                     <div>
-                        post1
+                        -dSm(T)
                     </div>
                     <div>
-                        post2
+                        -dSmax(H)
                     </div>
                 </div>
             </div>
