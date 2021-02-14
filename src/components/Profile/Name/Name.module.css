@@ -1,0 +1,12 @@
+.name {
+
+}
+
+.name input {
+    color: grey;
+}
+
+.name img {
+    width: 60px;
+    border-radius: 10px;
+}

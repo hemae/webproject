@@ -6,11 +6,3 @@
 .profile img {
     height: 50px;
 }
-
-.item {
-    font-style: italic;
-}
-
-.item.active {
-    color: blue;
-}
