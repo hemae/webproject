@@ -8,12 +8,12 @@ const Main = (props) => {
     return (
         <div className={classes.main}>
             <div>
-                <img src="https://km.insma.urfu.ru/documents/logotype/cm_544x250.png" />
+                <img src="https://km.insma.urfu.ru/documents/logotype/cm_544x250.png"/>
             </div>
-            <Name />
-            <Properties />
+            <Name/>
+            <Properties/>
             What's need calctulate:
-            <Calculating />
+            <Calculating/>
         </div>
     );
 }

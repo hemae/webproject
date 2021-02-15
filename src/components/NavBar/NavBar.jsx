@@ -1,31 +1,29 @@
 import React from 'react';
 import classes from './NavBar.module.css';
 import {NavLink} from "react-router-dom";
+import Dialog from "../Messenger/Dialogues/Dialog/Dialog";
 
 const NavBar = () => {
+    let linksData = [
+        {url: "/main", label: "Main"},
+        {url: "/messenger", label: "Messenger"},
+        {url: "/ferromagnet", label: "Ferromagnet"},
+        {url: "/antiferromagnet", label: "Antiferromagnet"},
+        {url: "/ferrimagnet", label: "Ferrimagnet"},
+        {url: "/about", label: "About"},
+        {url: "/language_settings", label: "Language settings"}
+    ];
+
+    let linksArray = linksData
+        .map(link => (
+            <div className={classes.item}>
+                <NavLink to={link.url} activeClassName={classes.active}>{link.label}</NavLink>
+            </div>
+        ));
+
     return (
         <nav className={classes.nav}>
-            <div className={classes.item}>
-                <NavLink to="/main" activeClassName={classes.active}>Main</NavLink>
-            </div>
-            <div className={classes.item}>
-                <NavLink to="/messenger" activeClassName={classes.active}>Messenger</NavLink>
-            </div>
-            <div className={classes.item}>
-                <NavLink to="/ferromagnet" activeClassName={classes.active}>Ferromagnet</NavLink>
-            </div>
-            <div className={classes.item}>
-                <NavLink to="/antiferromagnet" activeClassName={classes.active}>Antiferromagnet</NavLink>
-            </div>
-            <div className={classes.item}>
-                <NavLink to="/ferrimagnet" activeClassName={classes.active}>Ferrimagnet</NavLink>
-            </div>
-            <div className={classes.item}>
-                <NavLink to="/about" activeClassName={classes.active}>About</NavLink>
-            </div>
-            <div className={classes.item}>
-                <NavLink to="/language_settings" activeClassName={classes.active}>Language settings</NavLink>
-            </div>
+            {linksArray}
         </nav>
     );
 }

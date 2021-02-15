@@ -9,11 +9,12 @@ const Properties = () => {
         {quantity: "Density", unit: "g/cm3"}
     ];
 
+    let propertiesArray = propertiesData
+        .map(property => <Property quantity={property.quantity} unit={property.unit}/>);
+
     return (
         <div>
-            <Property quantity={propertiesData[0].quantity} unit={propertiesData[0].unit} />
-            <Property quantity={propertiesData[1].quantity} unit={propertiesData[1].unit} />
-            <Property quantity={propertiesData[2].quantity} unit={propertiesData[2].unit} />
+            {propertiesArray}
         </div>
     );
 }

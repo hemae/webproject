@@ -2,6 +2,7 @@ import React from 'react';
 import classes from './Dialogues.module.css';
 import Dialog from "./Dialog/Dialog";
 import {NavLink} from "react-router-dom";
+import Chat from "../Chat/Chat";
 
 const Dialogues = (props) => {
     let dialoguesData = [
@@ -11,12 +12,12 @@ const Dialogues = (props) => {
         {id: "4", companionName: "Dmitriy Sergeevich", status: "offline"}
     ];
 
+    let dialoguesArray = dialoguesData
+        .map(dialog => <Dialog status={dialog.status} companionName={dialog.companionName} id={dialog.id}/>)
+
     return (
         <div className={classes.dialogues}>
-            <Dialog status={dialoguesData[0].status} companionName={dialoguesData[0].companionName} id={dialoguesData[0].id}/>
-            <Dialog status={dialoguesData[1].status} companionName={dialoguesData[1].companionName} id={dialoguesData[1].id}/>
-            <Dialog status={dialoguesData[2].status} companionName={dialoguesData[2].companionName} id={dialoguesData[2].id}/>
-            <Dialog status={dialoguesData[3].status} companionName={dialoguesData[3].companionName} id={dialoguesData[3].id}/>
+            {dialoguesArray}
         </div>
     );
 }

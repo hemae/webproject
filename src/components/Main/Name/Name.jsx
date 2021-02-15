@@ -8,18 +8,23 @@ const Name = (props) => {
         {materialName: "FeNi", imgLink: ""},
     ];
 
+    let materialsArray = materialsData
+        .map(material => <option>{material.materialName}</option>);
+    let materialsImgArray = materialsData
+        .map(material => <option><img src={material.imgLink}/></option>);
+
     return (
         <div className={classes.name}>
-            Insert sample name:
+            Input sample name:
             <div className={classes.nameInput}>
-                <input value="sample name" />
+                <input value="sample name"/>
             </div>
             <select>
-                <option>{materialsData[0].materialName}</option>
-                <option>{materialsData[1].materialName}</option>
-                <option>{materialsData[2].materialName}</option>
+                {materialsArray}
             </select>
-            <img src={materialsData[0].imgLink} />
+            <select>
+                {materialsImgArray}
+            </select>
         </div>
     );
 }

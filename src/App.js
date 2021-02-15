@@ -23,19 +23,16 @@ const App = () => {
         {path: "/language_settings", component: Language}
     ];
 
+    let routeArray = routeData
+        .map(route => <Route path={route.path} component={route.component}/>);
+
     return (
         <BrowserRouter>
             <div className="app-wrapper">
-                <Header />
-                <NavBar />
+                <Header/>
+                <NavBar/>
                 <div className="app-wrapper-content">
-                    <Route path={routeData[0].path} component={routeData[0].component}/>
-                    <Route path={routeData[1].path} component={routeData[1].component}/>
-                    <Route path={routeData[2].path} component={routeData[2].component}/>
-                    <Route path={routeData[3].path} component={routeData[3].component}/>
-                    <Route path={routeData[4].path} component={routeData[4].component}/>
-                    <Route path={routeData[5].path} component={routeData[5].component}/>
-                    <Route path={routeData[6].path} component={routeData[6].component}/>
+                    {routeArray}
                 </div>
             </div>
         </BrowserRouter>
