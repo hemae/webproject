@@ -1,0 +1,9 @@
+.dialogues {
+    grid-area: d;
+    background-color: #f195fc;
+}
+
+.dialogues img {
+    width: 50px;
+    border-radius: 25px;
+}

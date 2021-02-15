@@ -6,7 +6,12 @@
     color: grey;
 }
 
+.name .nameInput {
+    padding: 5px;
+}
+
 .name img {
     width: 60px;
     border-radius: 10px;
+    padding: 5px;
 }

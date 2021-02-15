@@ -1,0 +1,13 @@
+.messenger {
+    display: grid;
+    /*width: 1200px;*/
+    margin: 0 auto;
+    grid-template-areas:
+  "d c";
+    grid-template-columns: 4fr 5fr;
+}
+
+.chatWrapper {
+    grid-area: c;
+    background-color: #fca5a5;
+}

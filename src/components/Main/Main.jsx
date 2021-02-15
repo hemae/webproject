@@ -1,12 +1,12 @@
 import React from 'react';
-import classes from './Profile.module.css';
+import classes from './Main.module.css';
 import Calculating from "./Calculating/Calculating";
 import Properties from "./Properties/Properties";
 import Name from "./Name/Name";
 
-const Profile = () => {
+const Main = (props) => {
     return (
-        <div className={classes.profile}>
+        <div className={classes.main}>
             <div>
                 <img src="https://km.insma.urfu.ru/documents/logotype/cm_544x250.png" />
             </div>
@@ -18,4 +18,4 @@ const Profile = () => {
     );
 }
 
-export default Profile;
+export default Main;
