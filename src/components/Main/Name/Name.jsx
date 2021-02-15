@@ -2,15 +2,9 @@ import React from 'react';
 import classes from './Name.module.css';
 
 const Name = (props) => {
-    let materialsData = [
-        {materialName: "Gd", imgLink: "https://bvb-alyans.ru/media/uploads/images/gadolinij.jpg"},
-        {materialName: "Fe", imgLink: ""},
-        {materialName: "FeNi", imgLink: ""},
-    ];
-
-    let materialsArray = materialsData
+    let materialsArray = props.materialsData
         .map(material => <option>{material.materialName}</option>);
-    let materialsImgArray = materialsData
+    let materialsImgArray = props.materialsData
         .map(material => <option><img src={material.imgLink}/></option>);
 
     return (

@@ -3,6 +3,13 @@ import classes from './Messenger.module.css';
 import Dialogues from "./Dialogues/Dialogues";
 import Chat from "./Chat/Chat";
 
+let dialoguesData = [
+    {id: "1", companionName: "Svalov", status: "offline"},
+    {id: "2", companionName: "Vas'kovskiy", status: "online"},
+    {id: "3", companionName: "Volegov", status: "offline"},
+    {id: "4", companionName: "Dmitriy Sergeevich", status: "offline"}
+];
+
 const Messenger = (props) => {
     let chatData = [
         {
@@ -23,7 +30,7 @@ const Messenger = (props) => {
 
     return (
         <div className={classes.messenger}>
-            <Dialogues/>
+            <Dialogues dialoguesData={dialoguesData}/>
             <div className={classes.chatWrapper}>
                 {chatArray}
             </div>
