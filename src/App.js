@@ -7,7 +7,7 @@ import NavBar from "./components/NavBar/NavBar.jsx";
 
 const App = (props) => {
     let routeArray = props.routeData
-        .map(route => <Route path={route.path} component={route.component}/>);
+        .map(route => <Route path={route.path} render={() => route.component} />);
 
     return (
         <BrowserRouter>
