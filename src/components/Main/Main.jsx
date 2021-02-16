@@ -10,10 +10,10 @@ const Main = (props) => {
             <div>
                 <img src={props.mainLogo}/>
             </div>
-            <Name materialsData={props.materialsData}/>
-            <Properties propertiesData={props.propertiesData}/>
+            <Name materialsArray={props.materialsArray} materialsImgArray={props.materialsImgArray} parametersArray={props.parametersArray}/>
+            <Properties propertiesArray={props.propertiesArray}/>
             What's need calctulate:
-            <Calculating quantityData={props.quantityData}/>
+            <Calculating quantityArray={props.quantityArray}/>
         </div>
     );
 }

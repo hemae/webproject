@@ -1,0 +1,17 @@
+.parameter {
+
+}
+
+.parameter input {
+    color: grey;
+}
+
+.parameter .nameInput {
+    padding: 5px;
+}
+
+.parameter img {
+    width: 60px;
+    border-radius: 10px;
+    padding: 5px;
+}
