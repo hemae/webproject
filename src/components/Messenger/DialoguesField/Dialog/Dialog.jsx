@@ -5,7 +5,7 @@ import {NavLink} from "react-router-dom";
 const Dialog = (props) => {
     return (
         <div className={classes.dialog}>
-            <NavLink to={`/messenger/${props.dialogData.companionInfo.id}`}>
+            <NavLink to={`/messenger/${props.dialogData.companionInfo.companionId}`}>
                 <img src={props.dialogData.companionInfo.avaImgLink}/>
                 {props.dialogData.companionInfo.companionName} {props.dialogData.companionInfo.status}
             </NavLink>

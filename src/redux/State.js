@@ -24,6 +24,24 @@ import ChatField from "../components/Messenger/ChatField/ChatField";
 import Dialog from "../components/Messenger/DialoguesField/Dialog/Dialog";
 import Parameter from "../components/Main/Name/Parameters/Parameter/Parameter";
 
+
+// functions for Messenger
+export let addMessage = (companionId, messageText) => {
+    let newMessage = {
+        id: String(dialoguesData[Number(companionId)].messagesData.length),
+        messageText: messageText,
+        author: "me",
+        sendingTime: "22:00"
+    }
+    let messageComp = <Message messageData={newMessage}/>
+    messagesCompArray[Number(companionId)].push(messageComp)
+}
+
+export let funcsData = {
+    addMessage: addMessage
+}
+
+
 // for NavBar
 let linksArray = linksData
     .map(link => (
@@ -31,6 +49,7 @@ let linksArray = linksData
             <NavLink to={link.url} activeClassName={classes.active}>{link.label}</NavLink>
         </div>
     ));
+
 
 // for Main
 let parametersArray = parametersData
@@ -47,6 +66,7 @@ let propertiesArray = propertiesData
 
 let quantityArray = quantityData
     .map(quantity => <Quantity quantity={quantity.quantity} imglink={quantity.imglink}/>);
+
 
 // for Messenger
 let messagesDataArray = [];
@@ -70,7 +90,8 @@ for (let i = 0; i < dialoguesData.length; i += 1) {
 }
 
 let dialoguesRouteArray = dialoguesDataEdit
-    .map(dialog => <Route path={`/messenger/${dialog.companionInfo.id}`} render={() => <ChatField dialogData={dialog}/>}/>)
+    .map(dialog => <Route path={`/messenger/${dialog.companionInfo.companionId}`}
+                          render={() => <ChatField dialogData={dialog} funcsData={funcsData}/>}/>)
 
 let dialoguesLinksArray = dialoguesDataEdit
     .map(dialog => <Dialog dialogData={dialog}/>)
@@ -82,13 +103,16 @@ let routeData = [
                          materialsImgArray={materialsImgArray} propertiesArray={propertiesArray}
                          mainLogo={imgLinksData.mainLogo} parametersArray={parametersArray}/>
     },
-    {path: linksData[1].url, component: <Messenger dialoguesRouteArray={dialoguesRouteArray} dialoguesLinksArray={dialoguesLinksArray}/>},
+    {
+        path: linksData[1].url,
+        component: <Messenger dialoguesRouteArray={dialoguesRouteArray} dialoguesLinksArray={dialoguesLinksArray}/>
+    },
     {path: linksData[2].url, component: <Ferromagnet/>},
     {path: linksData[3].url, component: <Antiferromagnet/>},
     {path: linksData[4].url, component: <Ferrimagnet/>},
     {path: linksData[5].url, component: <About/>},
     {path: linksData[6].url, component: <Language/>}
-]; //
+];
 
 let routeArray = routeData
     .map(route => <Route path={route.path} render={() => route.component}/>);
@@ -97,5 +121,6 @@ let state = {
     linksArray: linksArray,
     routeArray: routeArray
 };
+
 
 export default state

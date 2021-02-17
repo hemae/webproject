@@ -34,31 +34,31 @@ export let quantityData = [
 export let dialoguesData = [
     {
         companionInfo: {
-            id: "1",
+            companionId: "0",
             companionName: "Svalov",
             status: "last seen at 12:52",
             avaImgLink: "https://static.wikia.nocookie.net/zlodei/images/a/aa/1432627351_1936360012.jpg/revision/latest/top-crop/width/360/height/450?cb=20161101050024&path-prefix=ru"
         },
         messagesData: [
-            {id: "1", messageText: "Даров", author: "Svalov", sendingTime: "06:56"},
-            {id: "2", messageText: "Хаюшки", author: "me", sendingTime: "06:59"},
-            {id: "3", messageText: "Че как?", author: "Svalov", sendingTime: "07:12"},
-            {id: "4", messageText: "Да норм)", author: "me", sendingTime: "07:13"}
+            {id: "0", messageText: "Даров", author: "Svalov", sendingTime: "06:56"},
+            {id: "1", messageText: "Хаюшки", author: "me", sendingTime: "06:59"},
+            {id: "2", messageText: "Че как?", author: "Svalov", sendingTime: "07:12"},
+            {id: "3", messageText: "Да норм)", author: "me", sendingTime: "07:13"}
         ]
     },
     {
         companionInfo: {
-            id: "2",
+            companionId: "1",
             companionName: "Putin",
             status: "never been online",
             avaImgLink: "https://www.pnp.ru/upload/entities/2020/05/11/article/detailPicture/fd/76/02/05/a4ce68fe529236011ef3b3bfdf7827bc.jpg"
         },
         messagesData: [
-            {id: "1", messageText: "Привет", author: "Putin", sendingTime: "--:--"},
-            {id: "2", messageText: "Хаюшки", author: "me", sendingTime: "13:42"},
-            {id: "3", messageText: "Как жизнь?", author: "Putin", sendingTime: "--:--"},
-            {id: "4", messageText: "За Вами следят :)", author: "Putin", sendingTime: "--:--"},
-            {id: "5", messageText: "Ну ты охуел, пидор", author: "me", sendingTime: "13:45"}
+            {id: "0", messageText: "Привет", author: "Putin", sendingTime: "--:--"},
+            {id: "1", messageText: "Хаюшки", author: "me", sendingTime: "13:42"},
+            {id: "2", messageText: "Как жизнь?", author: "Putin", sendingTime: "--:--"},
+            {id: "3", messageText: "За Вами следят :)", author: "Putin", sendingTime: "--:--"},
+            {id: "4", messageText: "Ну ты охуел, пидор", author: "me", sendingTime: "13:45"}
         ]
     },
 ];
@@ -73,7 +73,6 @@ export let linksData = [
     {url: "/language_settings", label: "Language settings"},
     {url: "/exit", label: "Exit"}
 ];
-
 
 export let imgLinksData = {
     mainLogo: "https://km.insma.urfu.ru/documents/logotype/cm_544x250.png"
