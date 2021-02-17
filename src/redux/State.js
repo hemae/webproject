@@ -23,23 +23,32 @@ import Property from "../components/Main/Properties/Property/Property";
 import ChatField from "../components/Messenger/ChatField/ChatField";
 import Dialog from "../components/Messenger/DialoguesField/Dialog/Dialog";
 import Parameter from "../components/Main/Name/Parameters/Parameter/Parameter";
+import {rerenderEntireTree} from "../render";
 
 
 // functions for Messenger
-export let addMessage = (companionId, messageText) => {
+export let addMessage = (companionId) => {
     let newMessage = {
         id: String(dialoguesData[Number(companionId)].messagesData.length),
-        messageText: messageText,
+        messageText: dialoguesDataEdit[Number(companionId)].newMessageText,
         author: "me",
         sendingTime: "22:00"
-    }
-    let messageComp = <Message messageData={newMessage}/>
-    messagesCompArray[Number(companionId)].push(messageComp)
+    };
+    let messageComp = <Message messageData={newMessage}/>;
+    messagesCompArray[Number(companionId)].push(messageComp);
+    dialoguesDataEdit[Number(companionId)].newMessageText = "";
+    rerenderEntireTree(state, funcsData);
+};
+
+export let updateNewMessageText = (companionId, newMessageText) => {
+    dialoguesDataEdit[Number(companionId)].newMessageText = newMessageText;
+    rerenderEntireTree(state, funcsData);
 }
 
 export let funcsData = {
-    addMessage: addMessage
-}
+    addMessage: addMessage,
+    updateNewMessageText: updateNewMessageText
+};
 
 
 // for NavBar
@@ -53,7 +62,7 @@ let linksArray = linksData
 
 // for Main
 let parametersArray = parametersData
-    .map(parameter => <Parameter sampleParameter={parameter}/>)
+    .map(parameter => <Parameter sampleParameter={parameter}/>);
 
 let materialsArray = materialsData
     .map(material => <option>{material.materialName}</option>);
@@ -71,30 +80,31 @@ let quantityArray = quantityData
 // for Messenger
 let messagesDataArray = [];
 for (let i = 0; i < dialoguesData.length; i += 1) {
-    messagesDataArray.push(dialoguesData[i].messagesData)
-}
+    messagesDataArray.push(dialoguesData[i].messagesData);
+};
 
 let messagesCompArray = [];
 for (let i = 0; i < messagesDataArray.length; i += 1) {
     let messagesComp = messagesDataArray[i]
-        .map(message => <Message messageData={message}/>)
+        .map(message => <Message messageData={message}/>);
     messagesCompArray.push(messagesComp);
-}
+};
 
 let dialoguesDataEdit = [];
 for (let i = 0; i < dialoguesData.length; i += 1) {
     dialoguesDataEdit.push({
         companionInfo: dialoguesData[i].companionInfo,
-        messagesArray: messagesCompArray[i]
-    })
-}
+        messagesArray: messagesCompArray[i],
+        newMessageText: "type your message"
+    });
+};
 
 let dialoguesRouteArray = dialoguesDataEdit
     .map(dialog => <Route path={`/messenger/${dialog.companionInfo.companionId}`}
-                          render={() => <ChatField dialogData={dialog} funcsData={funcsData}/>}/>)
+                          render={() => <ChatField dialogData={dialog} funcsData={funcsData}/>}/>);
 
 let dialoguesLinksArray = dialoguesDataEdit
-    .map(dialog => <Dialog dialogData={dialog}/>)
+    .map(dialog => <Dialog dialogData={dialog}/>);
 
 let routeData = [
     {
@@ -123,4 +133,4 @@ let state = {
 };
 
 
-export default state
+export default state;

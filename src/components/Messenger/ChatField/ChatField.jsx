@@ -11,11 +11,16 @@ const ChatField = (props) => {
         props.funcsData.addMessage(props.dialogData.companionInfo.companionId, text);
     };
 
+    let changeText = () => {
+        let text = getTextMessage.current.value;
+        props.funcsData.updateNewMessageText(props.dialogData.companionInfo.companionId, text);
+    }
+
     return (
         <div className={classes.chatField}>
             <ChatFieldHeader companionInfo={props.dialogData.companionInfo}/>
             <Chat messagesArray={props.dialogData.messagesArray}/>
-            <textarea ref={getTextMessage}></textarea>
+            <textarea onChange={changeText} ref={getTextMessage} value={props.dialogData.newMessageText}></textarea>
             <button onClick={sendMessage}>Send</button>
         </div>
     );
