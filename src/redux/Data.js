@@ -1,22 +1,22 @@
-let parametersData = [
+export let parametersData = [
     "sample name",
     "sample code"
 ];
 
-let materialsData = [
+export let materialsData = [
     {materialName: "Gd", imgLink: "https://bvb-alyans.ru/media/uploads/images/gadolinij.jpg"},
     {materialName: "Fe", imgLink: ""},
     {materialName: "FeNi", imgLink: ""}
 ];
 
-let propertiesData = [
+export let propertiesData = [
     {quantity: "Mass", unit: "g"},
     {quantity: "Volume", unit: "cm3"},
     {quantity: "Density", unit: "g/cm3"},
     {quantity: "Capacity", unit: "J/K"}
 ];
 
-let quantityData = [
+export let quantityData = [
     {
         quantity: "m(T, H)",
         imglink: "https://lh3.googleusercontent.com/proxy/Ywoha0otSW2OUkRRTxXtvVGy6BS7reyvC6EWkjrupzPfDdcibepYIFjkd_jVql-_OrARJNLLrUhROTAbk4tkNPPlhuv6-h3VwhQdfyQ8BEk8AkOeYJZHMAzHSrpiZg"
@@ -31,29 +31,39 @@ let quantityData = [
     }
 ];
 
-
-let dialoguesData = [
-    {id: "1", companionName: "Svalov", status: "offline"},
-    {id: "2", companionName: "Vas'kovskiy", status: "online"},
-    {id: "3", companionName: "Volegov", status: "offline"},
-    {id: "4", companionName: "Dmitriy Sergeevich", status: "offline"},
-    {id: "5", companionName: "Putin", status: "never been online"},
-];
-
-let chatData = [
+export let dialoguesData = [
     {
-        companionName: "Svalov",
-        imgLink: "",
-        status: "last seen at 07:39",
-        author1: "Svalov",
-        author2: "me",
-        messageText1: "Андрей, спасибо за проделанную работу!",
-        messageText2: "Буду ждать ответа рецензента!"
-    }
+        companionInfo: {
+            id: "1",
+            companionName: "Svalov",
+            status: "last seen at 12:52",
+            avaImgLink: "https://static.wikia.nocookie.net/zlodei/images/a/aa/1432627351_1936360012.jpg/revision/latest/top-crop/width/360/height/450?cb=20161101050024&path-prefix=ru"
+        },
+        messagesData: [
+            {id: "1", messageText: "Даров", author: "Svalov", sendingTime: "06:56"},
+            {id: "2", messageText: "Хаюшки", author: "me", sendingTime: "06:59"},
+            {id: "3", messageText: "Че как?", author: "Svalov", sendingTime: "07:12"},
+            {id: "4", messageText: "Да норм)", author: "me", sendingTime: "07:13"}
+        ]
+    },
+    {
+        companionInfo: {
+            id: "2",
+            companionName: "Putin",
+            status: "never been online",
+            avaImgLink: "https://www.pnp.ru/upload/entities/2020/05/11/article/detailPicture/fd/76/02/05/a4ce68fe529236011ef3b3bfdf7827bc.jpg"
+        },
+        messagesData: [
+            {id: "1", messageText: "Привет", author: "Putin", sendingTime: "--:--"},
+            {id: "2", messageText: "Хаюшки", author: "me", sendingTime: "13:42"},
+            {id: "3", messageText: "Как жизнь?", author: "Putin", sendingTime: "--:--"},
+            {id: "4", messageText: "За Вами следят :)", author: "Putin", sendingTime: "--:--"},
+            {id: "5", messageText: "Ну ты охуел, пидор", author: "me", sendingTime: "13:45"}
+        ]
+    },
 ];
 
-
-let linksData = [
+export let linksData = [
     {url: "/main", label: "Main"},
     {url: "/messenger", label: "Messenger"},
     {url: "/ferromagnet", label: "Ferromagnet"},
@@ -65,9 +75,6 @@ let linksData = [
 ];
 
 
-let imgLinksData = {
+export let imgLinksData = {
     mainLogo: "https://km.insma.urfu.ru/documents/logotype/cm_544x250.png"
 }
-
-
-export {quantityData, materialsData, propertiesData, imgLinksData, dialoguesData, chatData, linksData, parametersData}

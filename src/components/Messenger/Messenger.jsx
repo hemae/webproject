@@ -1,13 +1,12 @@
 import React from 'react';
 import classes from './Messenger.module.css';
-import Dialogues from "./Dialogues/Dialogues";
+import DialoguesField from "./DialoguesField/DialoguesField";
 
-const Messenger = (props) => {
-    return (
+const Messenger = (props) => {return (
         <div className={classes.messenger}>
-            <Dialogues dialoguesArray={props.dialoguesArray}/>
+            <DialoguesField dialoguesLinksArray={props.dialoguesLinksArray}/>
             <div className={classes.chatWrapper}>
-                {props.chatArray}
+                {props.dialoguesRouteArray}
             </div>
         </div>
     );

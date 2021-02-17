@@ -4,7 +4,7 @@ import classes from './Message.module.css';
 const Message = (props) => {
     return (
         <div className={classes.message}>
-            {props.author}: {props.messageText}
+            {props.messageData.author}: {props.messageData.messageText}, {props.messageData.sendingTime}
         </div>
     );
 }

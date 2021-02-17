@@ -1,3 +1,16 @@
+import {
+    quantityData,
+    materialsData,
+    propertiesData,
+    imgLinksData,
+    dialoguesData,
+    linksData,
+    parametersData
+} from "./Data"
+import {NavLink, Route} from "react-router-dom";
+import React from "react";
+import classes from "../components/NavBar/NavBar.module.css";
+import Message from "../components/Messenger/ChatField/Chat/Message/Message";
 import Main from "../components/Main/Main";
 import Messenger from "../components/Messenger/Messenger";
 import Ferromagnet from "../components/Ferromagnet/Ferromagnet";
@@ -5,25 +18,13 @@ import Antiferromagnet from "../components/Antiferromagnet/Antiferromagnet";
 import Ferrimagnet from "../components/Ferrimagnet/Ferrimagnet";
 import About from "../components/About/About";
 import Language from "../components/Language/Language";
-import {NavLink, Route} from "react-router-dom";
 import Quantity from "../components/Main/Calculating/Quantity/Quantity";
 import Property from "../components/Main/Properties/Property/Property";
-import Chat from "../components/Messenger/Chat/Chat";
-import Dialog from "../components/Messenger/Dialogues/Dialog/Dialog";
-import {
-    quantityData,
-    materialsData,
-    propertiesData,
-    imgLinksData,
-    dialoguesData,
-    chatData,
-    linksData,
-    parametersData
-} from "./Data"
+import ChatField from "../components/Messenger/ChatField/ChatField";
+import Dialog from "../components/Messenger/DialoguesField/Dialog/Dialog";
 import Parameter from "../components/Main/Name/Parameters/Parameter/Parameter";
-import classes from "../components/NavBar/NavBar.module.css";
-import React from "react";
 
+// for NavBar
 let linksArray = linksData
     .map(link => (
         <div className={classes.item}>
@@ -31,8 +32,9 @@ let linksArray = linksData
         </div>
     ));
 
-let quantityArray = quantityData
-    .map(quantity => <Quantity quantity={quantity.quantity} imglink={quantity.imglink}/>);
+// for Main
+let parametersArray = parametersData
+    .map(parameter => <Parameter sampleParameter={parameter}/>)
 
 let materialsArray = materialsData
     .map(material => <option>{material.materialName}</option>);
@@ -43,16 +45,35 @@ let materialsImgArray = materialsData
 let propertiesArray = propertiesData
     .map(property => <Property quantity={property.quantity} unit={property.unit}/>);
 
-let chatArray = chatData
-    .map(chat => <Chat companionName={chat.companionName} imgLink={chat.imgLink} status={chat.status}
-                       author1={chat.author1} messageText1={chat.messageText1} author2={chat.author2}
-                       messageText2={chat.messageText2}/>)
+let quantityArray = quantityData
+    .map(quantity => <Quantity quantity={quantity.quantity} imglink={quantity.imglink}/>);
 
-let dialoguesArray = dialoguesData
-    .map(dialog => <Dialog status={dialog.status} companionName={dialog.companionName} id={dialog.id}/>)
+// for Messenger
+let messagesDataArray = [];
+for (let i = 0; i < dialoguesData.length; i += 1) {
+    messagesDataArray.push(dialoguesData[i].messagesData)
+}
 
-let parametersArray = parametersData
-    .map(parameter => <Parameter sampleParameter={parameter}/>)
+let messagesCompArray = [];
+for (let i = 0; i < messagesDataArray.length; i += 1) {
+    let messagesComp = messagesDataArray[i]
+        .map(message => <Message messageData={message}/>)
+    messagesCompArray.push(messagesComp);
+}
+
+let dialoguesDataEdit = [];
+for (let i = 0; i < dialoguesData.length; i += 1) {
+    dialoguesDataEdit.push({
+        companionInfo: dialoguesData[i].companionInfo,
+        messagesArray: messagesCompArray[i]
+    })
+}
+
+let dialoguesRouteArray = dialoguesDataEdit
+    .map(dialog => <Route path={`/messenger/${dialog.companionInfo.id}`} render={() => <ChatField dialogData={dialog}/>}/>)
+
+let dialoguesLinksArray = dialoguesDataEdit
+    .map(dialog => <Dialog dialogData={dialog}/>)
 
 let routeData = [
     {
@@ -61,7 +82,7 @@ let routeData = [
                          materialsImgArray={materialsImgArray} propertiesArray={propertiesArray}
                          mainLogo={imgLinksData.mainLogo} parametersArray={parametersArray}/>
     },
-    {path: linksData[1].url, component: <Messenger dialoguesArray={dialoguesArray} chatArray={chatArray}/>},
+    {path: linksData[1].url, component: <Messenger dialoguesRouteArray={dialoguesRouteArray} dialoguesLinksArray={dialoguesLinksArray}/>},
     {path: linksData[2].url, component: <Ferromagnet/>},
     {path: linksData[3].url, component: <Antiferromagnet/>},
     {path: linksData[4].url, component: <Ferrimagnet/>},
