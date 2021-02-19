@@ -3,10 +3,11 @@ import classes from './Property.module.css';
 
 const Property = (props) => {
     return (
-        <div>
+        <div className={classes.property}>
             {props.quantity}:
-            <input value="0.00"/>
-            <span className={classes.units}>{props.unit}</span>
+            <input />
+            <button>get value</button>
+            <span>{props.unit}</span>
         </div>
     );
 }

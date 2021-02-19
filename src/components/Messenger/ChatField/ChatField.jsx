@@ -8,12 +8,12 @@ const ChatField = (props) => {
 
     let sendMessage = () => {
         let text = getTextMessage.current.value;
-        props.funcsData.addMessage(props.dialogData.companionInfo.companionId, text);
+        props.addMessage(props.dialogData.companionInfo.companionId, text);
     };
 
     let changeText = () => {
         let text = getTextMessage.current.value;
-        props.funcsData.updateNewMessageText(props.dialogData.companionInfo.companionId, text);
+        props.updateNewMessageText(props.dialogData.companionInfo.companionId, text);
     }
 
     return (
